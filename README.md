@@ -12,4 +12,8 @@ MONGO_URI = mongodb+srv://sclegacyrules32:hREYkaKOwQDVWuiU@cluster0.mw8o2kv.mong
 NODE_ENV = production
 ```
 
-## After that Run npm i to install all the required packages.
+### After that Run following command to install all the required packages.
+
+```
+npm i
+```

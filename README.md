@@ -17,3 +17,9 @@ NODE_ENV = production
 ```
 npm i
 ```
+
+#### After that you can run server in your local using npm start and then test the API
+
+```
+npm start
+```

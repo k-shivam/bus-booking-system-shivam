@@ -6,9 +6,9 @@ const createTicket = async (req, res) =>{
     const {seatId, passenger} = req.body || {};
     const {name, email, sex, age} = passenger || {};
     try{
-        if(parseInt(seatId) > 40){
+        if(parseInt(seatId) > 40 || parseInt(seatId) < 1){
             return res.status(400).send(
-                {message:"Invalid SeatID. There are only 40 seats in the Bus!"}
+                {message:"Invalid SeatID. Seat no starts from 1 to till 40 only!"}
             )
         }
         let exists = await Tickets.findOne({
@@ -98,7 +98,8 @@ const getTicketStatus = async (req, res) =>{
 const updateTicketStatus = async(req, res) =>{
     try{
         const {ticketId} = req.params;
-        const {isBooked, passenger} = req.body
+        const {isBooked, passenger} = req.body;
+        const {name, email} = passenger;
 
         const ticketData = await Tickets.findByIdAndUpdate(ticketId,{
             $set:{
@@ -111,10 +112,9 @@ const updateTicketStatus = async(req, res) =>{
             })
         }
         const passengerId = ticketData?.passenger?.passengerId;
+        console.log(passengerId)
         await Passengers.findByIdAndUpdate(passengerId,{
-            $set:{
-                passenger
-            }
+            $set:passenger
         })
         return res.json({
             "message":"Successfully Updated Details!"

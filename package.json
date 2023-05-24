@@ -1,14 +1,9 @@
 {
-  "name": "bus-booking",
+  "name": "bus-booking-system-shivam",
   "version": "1.0.0",
-  "description": "A api service for bus booking",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "shivam091292@outlook.com",
-  "license": "ISC",
+  "main": "index.js",
+  "author": "credShivam <kumar.shivam@credgenics.com>",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",

@@ -17,7 +17,7 @@ const getUserDetails = async(req, res) =>{
                 message: "Ticket doesn't Exists"
             })
         }
-        const passengerId = ticketData.passenger?.passengerId
+        const passengerId = ticketData.passengerId
         const passengerData = await Passengers.findById(passengerId);
         if(passengerData){
             return res.status(200).send(passengerData);

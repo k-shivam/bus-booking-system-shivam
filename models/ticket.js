@@ -11,18 +11,9 @@ const ticketSchema = new mongoose.Schema({
         max: 40,
         required: true
     },
-    passenger:{
-        passengerName:{
-            type:String,
-            required: true
-        },
-        email:{
-            type:String,
-            required:true,
-        },
-        passengerId:{
-            type:String
-        }
+    passengerId:{
+        type:String,
+        required:true
     }
 },{
     timestamps: true

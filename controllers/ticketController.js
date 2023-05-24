@@ -31,11 +31,7 @@ const createTicket = async (req, res) =>{
             const ticket = new Tickets({
                 seatId,
                 isBooked:true,
-                passenger:{
-                    passengerName: name,
-                    email,
-                    passengerId: passengerData._id
-                }
+                passengerId: passengerData._id
             })
             const ticketData = await ticket.save();
             if(ticketData){
@@ -111,7 +107,7 @@ const updateTicketStatus = async(req, res) =>{
                 message:"Ticket ID is incorrect"
             })
         }
-        const passengerId = ticketData?.passenger?.passengerId;
+        const passengerId = ticketData.passengerId;
         console.log(passengerId)
         await Passengers.findByIdAndUpdate(passengerId,{
             $set:passenger
